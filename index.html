@@ -4,140 +4,650 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - MuteMaster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #f7f6f2;
+            --surface: #ffffff;
+            --ink: #1a1a1a;
+            --ink-muted: #5a5a5a;
+            --accent: #2a52a0;
+            --accent-light: #e8edf8;
+            --border: #e0ddd6;
+            --warn-bg: #fff8e6;
+            --warn-border: #f0b429;
+            --radius: 10px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: serif;
-            color: #000000;
-            background-color: #ffffff;
-            margin: 40px;
-            max-width: 800px;
-            line-height: 1.5;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            color: var(--ink);
+            background-color: var(--bg);
+            line-height: 1.75;
+            font-size: 15.5px;
         }
-        h1, h2, h3 {
-            border-bottom: 1px solid #000;
-            padding-bottom: 5px;
-            margin-top: 30px;
+
+        /* ── Header ── */
+        header {
+            background: #111827;
+            color: #fff;
+            padding: 60px 24px 48px;
+            text-align: center;
         }
-        h1 { text-transform: uppercase; text-align: center; }
+
+        .app-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 999px;
+            padding: 6px 16px 6px 8px;
+            margin-bottom: 28px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .app-badge-dot {
+            width: 8px; height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+        }
+
+        header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 14px;
+        }
+
+        header p {
+            color: rgba(255,255,255,0.55);
+            font-size: 14px;
+            letter-spacing: 0.03em;
+        }
+
+        .version-pill {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* ── Layout ── */
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* ── TOC ── */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            margin-bottom: 48px;
+        }
+
+        .toc-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            margin-bottom: 14px;
+        }
+
+        .toc ol {
+            padding-left: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 24px;
+        }
+
+        .toc ol li { font-size: 14px; }
+        .toc ol a { color: var(--accent); text-decoration: none; }
+        .toc ol a:hover { text-decoration: underline; }
+
+        /* ── Sections ── */
+        section { margin-bottom: 52px; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1.5px solid var(--border);
+        }
+
+        .section-num {
+            width: 30px; height: 30px;
+            background: var(--ink);
+            color: #fff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.45rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            margin: 28px 0 12px;
+        }
+
+        h3:first-child { margin-top: 0; }
+
+        p { margin-bottom: 14px; color: #2e2e2e; }
+
+        /* ── Disclosure box ── */
         .disclosure-box {
-            border: 2px solid #000;
-            padding: 20px;
+            background: var(--warn-bg);
+            border-left: 4px solid var(--warn-border);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 18px 22px;
             margin: 20px 0;
-            font-weight: bold;
-            background-color: #eeeeee;
+            font-weight: 500;
+            font-size: 14.5px;
+            color: #7a4f00;
+            line-height: 1.65;
+        }
+
+        /* ── Permission cards ── */
+        .permission-grid {
+            display: grid;
+            gap: 14px;
+        }
+
+        .permission-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+        }
+
+        .permission-card-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .perm-tag {
+            font-family: 'DM Sans', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.02em;
+        }
+
+        .permission-card dl { display: grid; gap: 6px; }
+        .permission-card dt {
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink-muted);
+            margin-top: 8px;
+        }
+        .permission-card dd { font-size: 14px; color: #2e2e2e; margin: 0; }
+
+        /* ── Rights grid ── */
+        .rights-grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .right-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .right-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .right-item strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .right-item p { font-size: 13.5px; color: var(--ink-muted); margin: 0; }
+
+        /* ── Info rows ── */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        .info-table tr:not(:last-child) { border-bottom: 1px solid var(--border); }
+        .info-table td { padding: 13px 18px; }
+        .info-table td:first-child { font-weight: 600; width: 38%; color: var(--ink-muted); }
+
+        /* ── Third-party item ── */
+        .third-party-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px 22px;
+            margin-bottom: 12px;
+        }
+        .third-party-item strong { display: block; font-size: 14px; margin-bottom: 4px; }
+        .third-party-item p { font-size: 13.5px; color: var(--ink-muted); margin: 0 0 8px; }
+        .third-party-item a { color: var(--accent); font-size: 13px; }
+
+        /* ── Terms section ── */
+        .terms-header {
+            background: #111827;
+            color: #fff;
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .terms-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+        .terms-header p { color: rgba(255,255,255,0.5); font-size: 13.5px; margin: 8px 0 0; }
+
+        /* ── Divider ── */
+        .divider {
+            border: none;
+            border-top: 1.5px solid var(--border);
+            margin: 56px 0;
+        }
+
+        /* ── Contact card ── */
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card .contact-col { flex: 1; min-width: 160px; }
+        .contact-card .contact-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            margin-bottom: 6px;
+        }
+        .contact-card .contact-value { font-size: 15px; font-weight: 500; }
+        .contact-card a { color: var(--accent); text-decoration: none; }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 12.5px;
+            color: var(--ink-muted);
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 560px) {
+            .toc ol { grid-template-columns: 1fr; }
+            .contact-card { flex-direction: column; gap: 18px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Privacy Policy</h1>
-    
-    <p><strong>App Name:</strong> MuteMaster - Auto Silent Manager</p>
-    <p><strong>Effective Date:</strong> January 23, 2026</p>
+<header>
+    <div class="app-badge">
+        <span class="app-badge-dot"></span>
+        MuteMaster — Auto Silent Manager
+    </div>
+    <h1>Privacy Policy <span class="version-pill">v2.0</span></h1>
+    <p>Effective Date: May 3, 2026 &nbsp;·&nbsp; DipDev Labs</p>
+</header>
+
+<div class="container">
+
+    <!-- TOC -->
+    <div class="toc">
+        <div class="toc-label">Contents</div>
+        <ol>
+            <li><a href="#s1">Location Access Disclosure</a></li>
+            <li><a href="#s2">Data Collection</a></li>
+            <li><a href="#s3">Data Storage & Retention</a></li>
+            <li><a href="#s4">Regional Compliance</a></li>
+            <li><a href="#s5">Third-Party Services</a></li>
+            <li><a href="#s6">Contact & Grievance</a></li>
+        </ol>
+    </div>
 
     <p>This Privacy Policy applies to the MuteMaster app (hereby referred to as "Application") and governs data collection and usage. By using the Application, you consent to the data practices described in this statement.</p>
 
-    <h2>1. Prominent Disclosure: Location Access</h2>
-    <p>To provide the core functionality of the Application, we require specific access to your location data.</p>
-    
-    <div class="disclosure-box">
-        The MuteMaster collects location data to enable the "Automatic Mute" feature, which silences your device when you enter specific zones (like your office or school), even when the app is closed or not in use.
+    <!-- Section 1 -->
+    <section id="s1">
+        <div class="section-header">
+            <div class="section-num">1</div>
+            <h2>Prominent Disclosure: Location Access</h2>
+        </div>
+        <p>To provide the core functionality of the Application, we require specific access to your location data.</p>
+        <div class="disclosure-box">
+            ⚠️ MuteMaster collects location data to enable the "Automatic Mute" feature, which silences your device when you enter specific zones (like your office or school), even when the app is closed or not in use.
+        </div>
+        <p>If you decline this permission, the automatic geofencing features will not function.</p>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="s2">
+        <div class="section-header">
+            <div class="section-num">2</div>
+            <h2>Data Collection: What, Why, and When</h2>
+        </div>
+        <p>We adhere to the principle of data minimization. We only access data and permissions necessary for the app to function.</p>
+
+        <h3>A. Permissions & Data</h3>
+        <div class="permission-grid">
+
+            <div class="permission-card">
+                <div class="permission-card-title">
+                    Precise Location
+                    <span class="perm-tag">ACCESS_FINE_LOCATION</span>
+                    <span class="perm-tag">BACKGROUND_LOCATION</span>
+                </div>
+                <dl>
+                    <dt>What</dt><dd>GPS coordinates (Latitude/Longitude).</dd>
+                    <dt>Why</dt><dd>To detect when your device enters or exits the "Silent Zones" you have created.</dd>
+                    <dt>When</dt><dd>The Android OS monitors your location in the background. The app receives a trigger only when a geofence transition occurs.</dd>
+                </dl>
+            </div>
+
+            <div class="permission-card">
+                <div class="permission-card-title">
+                    Notifications
+                    <span class="perm-tag">POST_NOTIFICATIONS</span>
+                </div>
+                <dl>
+                    <dt>What</dt><dd>Permission to post status bar alerts (Android 13+).</dd>
+                    <dt>Why</dt><dd>To inform you when the app has automatically changed your ringer mode (e.g., "Phone Muted").</dd>
+                    <dt>When</dt><dd>Sent immediately after a zone entry/exit or schedule activation event.</dd>
+                </dl>
+            </div>
+
+            <div class="permission-card">
+                <div class="permission-card-title">
+                    Audio Settings
+                    <span class="perm-tag">ACCESS_NOTIFICATION_POLICY</span>
+                </div>
+                <dl>
+                    <dt>What</dt><dd>Read/Write access to Ringer and Media volume settings.</dd>
+                    <dt>Why</dt><dd>To toggle the phone between Ring, Vibrate, and Silent modes, and to set custom media volume levels when a schedule or geofence activates.</dd>
+                    <dt>When</dt><dd>Accessed only when a zone transition or time-based schedule event is triggered.</dd>
+                </dl>
+            </div>
+
+            <div class="permission-card">
+                <div class="permission-card-title">
+                    Exact Alarms
+                    <span class="perm-tag">SCHEDULE_EXACT_ALARM</span>
+                    <span class="perm-tag">USE_EXACT_ALARM</span>
+                </div>
+                <dl>
+                    <dt>What</dt><dd>Permission to schedule precise, time-critical alarms (Android 12+).</dd>
+                    <dt>Why</dt><dd>To power the Time-Based Muting feature, ensuring your phone mutes and unmutes at exactly the scheduled time — even when the device is in deep sleep (Doze mode).</dd>
+                    <dt>When</dt><dd>Triggered at the exact start and end times of any schedule you have created.</dd>
+                </dl>
+            </div>
+
+            <div class="permission-card">
+                <div class="permission-card-title">
+                    Boot on Start
+                    <span class="perm-tag">RECEIVE_BOOT_COMPLETED</span>
+                </div>
+                <dl>
+                    <dt>What</dt><dd>Permission to run code when the device restarts.</dd>
+                    <dt>Why</dt><dd>To automatically restore and reschedule all your active geofences and time-based schedules after a device reboot, so your silent zones are never lost.</dd>
+                    <dt>When</dt><dd>Runs once immediately after the device finishes booting.</dd>
+                </dl>
+            </div>
+
+            <div class="permission-card">
+                <div class="permission-card-title">Schedule & Preference Data</div>
+                <dl>
+                    <dt>What</dt><dd>Schedule names, start/end times, active days of week, and custom sound profile settings (ringer mode, media volume percentage) you configure in the app.</dd>
+                    <dt>Why</dt><dd>To persist your schedules across app restarts and device reboots.</dd>
+                    <dt>When</dt><dd>Saved locally to your device's database whenever you create or edit a schedule. Never transmitted off-device.</dd>
+                </dl>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="s3">
+        <div class="section-header">
+            <div class="section-num">3</div>
+            <h2>Data Storage and Retention</h2>
+        </div>
+
+        <table class="info-table">
+            <tr>
+                <td>Storage Location</td>
+                <td>Entirely on your device using a local SQLite database (Room). No cloud, no servers.</td>
+            </tr>
+            <tr>
+                <td>Data Stored</td>
+                <td>Your saved Silent Zones (geofences), Time-Based Schedules, and sound profile preferences.</td>
+            </tr>
+            <tr>
+                <td>Our Access</td>
+                <td>None. We have no ability to access, view, or retrieve your data.</td>
+            </tr>
+            <tr>
+                <td>Retention Period</td>
+                <td>For as long as you have the app installed on your device.</td>
+            </tr>
+            <tr>
+                <td>Deletion</td>
+                <td>Uninstalling the Application permanently deletes all associated data from your device.</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Section 4 -->
+    <section id="s4">
+        <div class="section-header">
+            <div class="section-num">4</div>
+            <h2>Government & Regional Compliance</h2>
+        </div>
+
+        <h3>A. GDPR — European Union / UK</h3>
+        <p>If you are a resident of the EEA or UK, you have the following rights regarding your personal data:</p>
+        <div class="rights-grid">
+            <div class="right-item">
+                <div class="right-icon">⚖️</div>
+                <div>
+                    <strong>Legal Basis for Processing</strong>
+                    <p>We process your data based on <em>Consent</em> (when you grant permissions) and <em>Contractual Necessity</em> (to provide the service you installed the app for).</p>
+                </div>
+            </div>
+            <div class="right-item">
+                <div class="right-icon">👁️</div>
+                <div>
+                    <strong>Right to Access</strong>
+                    <p>You may view all stored data directly within the app's interface at any time.</p>
+                </div>
+            </div>
+            <div class="right-item">
+                <div class="right-icon">🗑️</div>
+                <div>
+                    <strong>Right to Erasure</strong>
+                    <p>Since data is stored locally, uninstalling the app permanently erases all personal data.</p>
+                </div>
+            </div>
+            <div class="right-item">
+                <div class="right-icon">🔒</div>
+                <div>
+                    <strong>Right to Restriction</strong>
+                    <p>You may revoke Location, Notification, or Alarm permissions at any time via Android Settings.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>B. CCPA & CPRA — California, USA</h3>
+        <div class="rights-grid">
+            <div class="right-item">
+                <div class="right-icon">📋</div>
+                <div>
+                    <strong>Right to Know</strong>
+                    <p>You have the right to request details on the categories of personal information collected (detailed in Section 2).</p>
+                </div>
+            </div>
+            <div class="right-item">
+                <div class="right-icon">🚫</div>
+                <div>
+                    <strong>Do Not Sell My Personal Information</strong>
+                    <p>MuteMaster does not sell your personal data. We do not share your location history with data brokers or advertisers.</p>
+                </div>
+            </div>
+            <div class="right-item">
+                <div class="right-icon">🤝</div>
+                <div>
+                    <strong>Non-Discrimination</strong>
+                    <p>We will not discriminate against you for exercising your privacy rights.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>C. COPPA — Children's Privacy</h3>
+        <p>This Application is not directed toward children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us so that we can take necessary action.</p>
+    </section>
+
+    <!-- Section 5 -->
+    <section id="s5">
+        <div class="section-header">
+            <div class="section-num">5</div>
+            <h2>Third-Party Services</h2>
+        </div>
+        <p>The Application uses the following system-level services to function. These have their own privacy policies:</p>
+
+        <div class="third-party-item">
+            <strong>Google Play Services — Geofencing API</strong>
+            <p>Used to monitor geofence transitions (entering/exiting Silent Zones) efficiently without constant GPS polling.</p>
+            <a href="https://policies.google.com/privacy" target="_blank">Read Google's Privacy Policy →</a>
+        </div>
+
+        <div class="third-party-item">
+            <strong>Android AlarmManager</strong>
+            <p>An Android OS system service (not a third-party SDK) used to fire exact alarms for the Time-Based Muting feature. No data leaves your device.</p>
+        </div>
+    </section>
+
+    <!-- Section 6 -->
+    <section id="s6">
+        <div class="section-header">
+            <div class="section-num">6</div>
+            <h2>Grievance Officer & Contact</h2>
+        </div>
+        <p>In accordance with the Information Technology Act (India) and DPDP compliance, if you have questions regarding your data, please contact:</p>
+        <div class="contact-card">
+            <div class="contact-col">
+                <div class="contact-label">Name</div>
+                <div class="contact-value">Dipankaj</div>
+            </div>
+            <div class="contact-col">
+                <div class="contact-label">Email</div>
+                <div class="contact-value"><a href="mailto:dipankajsingh25@gmail.com">dipankajsingh25@gmail.com</a></div>
+            </div>
+            <div class="contact-col">
+                <div class="contact-label">Location</div>
+                <div class="contact-value">New Delhi, India</div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Terms -->
+    <div class="terms-header">
+        <h2>Terms and Conditions</h2>
+        <p>By downloading or using the MuteMaster app, you agree to the following terms.</p>
     </div>
 
-    <p>If you decline this permission, the automatic geofencing features will not function.</p>
+    <section>
+        <div class="section-header">
+            <div class="section-num">1</div>
+            <h2>No Warranty ("As Is" Clause)</h2>
+        </div>
+        <p>The Application is provided on an "AS IS" and "AS AVAILABLE" basis. The Developer (Dipankaj) makes no warranties that the Application will be error-free or that the geofencing and time-scheduling features will work perfectly on every device or in every location.</p>
+        <p><strong>You acknowledge that you are solely responsible</strong> for ensuring your device is silenced in sensitive environments. We are not liable for any missed calls, failed mute events, or any social or professional consequences resulting from the app's performance.</p>
+    </section>
 
-    <h2>2. Data Collection: What, Why, and When</h2>
-    <p>We adhere to the principle of data minimization. We only collect data necessary for the app to function.</p>
+    <section>
+        <div class="section-header">
+            <div class="section-num">2</div>
+            <h2>Limitation of Liability</h2>
+        </div>
+        <p>To the maximum extent permitted by applicable law, in no event shall the Developer be liable for any direct, indirect, incidental, or consequential damages arising out of your use or inability to use the Application.</p>
+    </section>
 
-    <h3>A. Precise Location Data</h3>
-    <ul>
-        <li><strong>What:</strong> GPS coordinates (Latitude/Longitude).</li>
-        <li><strong>Why:</strong> To detect when your device enters or exits the "Silent Zones" you have created.</li>
-        <li><strong>When:</strong> The Android OS monitors your location in the background. The app receives a trigger only when a geofence transition occurs.</li>
-    </ul>
+    <section>
+        <div class="section-header">
+            <div class="section-num">3</div>
+            <h2>Governing Law</h2>
+        </div>
+        <p>These Terms shall be governed by the laws of <strong>New Delhi, India</strong>. Any disputes arising from this App shall be subject to the exclusive jurisdiction of the courts in New Delhi.</p>
+    </section>
 
-    <h3>B. Notification Permissions (Android 13+)</h3>
-    <ul>
-        <li><strong>What:</strong> Permission to post status bar alerts.</li>
-        <li><strong>Why:</strong> To inform you when the app has automatically changed your ringer mode (e.g., "Phone Muted").</li>
-        <li><strong>When:</strong> Sent immediately after a zone entry/exit event.</li>
-    </ul>
+</div>
 
-    <h3>C. Device Settings (Do Not Disturb)</h3>
-    <ul>
-        <li><strong>What:</strong> Read/Write access to Audio settings.</li>
-        <li><strong>Why:</strong> To toggle the phone between Ring, Vibrate, and Silent modes.</li>
-        <li><strong>When:</strong> Accessed only when a zone transition is detected.</li>
-    </ul>
-
-    <h2>3. Data Storage and Retention</h2>
-    <p><strong>Local Storage Policy:</strong> All user-generated data (saved zones, location logs, preferences) is stored locally on your device using internal databases (SQLite).</p>
-    <p><strong>Retention Period:</strong> Data is retained only for the duration of your use of the Application. We do not have access to your data.</p>
-    <p><strong>Deletion:</strong> Uninstalling the Application acts as a permanent deletion of all data associated with the Application from your device.</p>
-
-    <h2>4. Government & Regional Compliance Rules</h2>
-
-    <h3>A. General Data Protection Regulation (GDPR) - European Union/UK</h3>
-    <p>If you are a resident of the EEA or UK, you have the following rights regarding your personal data:</p>
-    <ul>
-        <li><strong>Legal Basis for Processing:</strong> We process your data based on <em>Consent</em> (when you grant permissions) and <em>Contractual Necessity</em> (to provide the service you installed the app for).</li>
-        <li><strong>Right to Access:</strong> You may view all stored location data directly within the app's interface.</li>
-        <li><strong>Right to Erasure ('Right to be Forgotten'):</strong> Since data is stored locally, uninstalling the app permanently erases all personal data.</li>
-        <li><strong>Right to Restriction:</strong> You may revoke Location or Notification permissions at any time via Android Settings.</li>
-    </ul>
-
-    <h3>B. California Consumer Privacy Act (CCPA) & CPRA - USA</h3>
-    <p>For residents of California, we provide the following disclosures:</p>
-    <ul>
-        <li><strong>Right to Know:</strong> You have the right to request details on the categories of personal information collected (detailed in Section 2).</li>
-        <li><strong>Do Not Sell My Personal Information:</strong> MuteMaster <strong>does not sell</strong> your personal data. We do not share your location history with data brokers or advertisers.</li>
-        <li><strong>Non-Discrimination:</strong> We will not discriminate against you for exercising your privacy rights.</li>
-    </ul>
-
-    <h3>C. Children's Online Privacy Protection Act (COPPA)</h3>
-    <p>This Application is not directed toward children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us so that we can take necessary actions.</p>
-
-    <h2>5. Third-Party Services</h2>
-    <p>The Application utilizes the following third-party services to function. These services have their own privacy policies:</p>
-    <ul>
-        <li>
-            <strong>Google Play Services:</strong> Used for Geofencing APIs and Maps SDK.<br>
-            <a href="https://policies.google.com/privacy">Read Google's Privacy Policy</a>
-        </li>
-    </ul>
-
-    <<h2>6. Grievance Officer & Contact</h2>
-<p>In accordance with the Information Technology Act (India) and DPDP compliance, if you have questions regarding your data, please contact:</p>
-<ul style="list-style: none; padding-left: 0;">
-    <li><strong>Name:</strong> Dipankaj</li>
-    <li><strong>Email:</strong> dipankajsingh25@gmail.com</li>
-    <li><strong>Address:</strong> New Delhi, India</li>
-</ul>
-<h1>Terms and Conditions</h1>
-<p>By downloading or using the MuteMaster app, you agree to the following terms:</p>
-
-<h3>1. No Warranty ("As Is" Clause)</h3>
-<p>
-    The Application is provided on an "AS IS" and "AS AVAILABLE" basis. The Developer (Dipankaj) makes no warranties 
-    that the Application will be error-free or that the geofencing features will work perfectly on every device 
-    or in every location. 
-</p>
-<p>
-    <strong>You acknowledge that you are solely responsible</strong> for ensuring your device is silenced in sensitive environments. 
-    We are not liable for any missed calls, failed mute events, or any social or professional consequences resulting from the App's performance.
-</p>
-
-<h3>2. Limitation of Liability</h3>
-<p>
-    To the maximum extent permitted by applicable law, in no event shall the Developer be liable for any direct, indirect, 
-    incidental, or consequential damages arising out of your use or inability to use the Application.
-</p>
-
-<h3>3. Governing Law</h3>
-<p>
-    These Terms shall be governed by the laws of <strong>New Delhi, India</strong>. Any disputes arising from this App 
-    shall be subject to the exclusive jurisdiction of the courts in New Delhi.
-</p>
+<footer>
+    &copy; 2026 DipDev Labs · MuteMaster v2.0 · All rights reserved
+</footer>
 
 </body>
 </html>
